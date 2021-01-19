@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GCashClone.Views.LockScreenPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:GCashClone.Converters"
+    xmlns:materialFont="clr-namespace:GCashClone.FontToClassConverters"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="#007DFE">
+    <ContentPage.Resources>
+        <converters:BooleanToFillConverter x:Key="boolToFillConverter" />
+        <converters:BoolToStrokeConverter x:Key="boolToStrokeConverter" />
+
+    </ContentPage.Resources>
+    <StackLayout>
+        <Grid RowDefinitions="*,*" RowSpacing="0">
+            <Grid
+                Grid.Row="0"
+                Margin="0,125,0,0"
+                ColumnDefinitions="*"
+                RowDefinitions="*,*,*,*"
+                RowSpacing="-10">
+                <Image
+                    Grid.Row="0"
+                    Margin="0,0,0,15"
+                    HorizontalOptions="CenterAndExpand"
+                    Source="ic_app_logo"
+                    WidthRequest="150" />
+                <Label
+                    Grid.Row="1"
+                    Margin="0,10,0,0"
+                    HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="0956 813 8209" TextColor="#E0E0E0" />
+                            <Span Text="   " />
+                            <Span Text="Change Number" TextColor="White" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label
+                    Grid.Row="2"
+                    Margin="0,0,0,0"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                                FontAttributes="Bold"
+                                Text="Enter your MPIN"
+                                TextColor="White" />
+                            <Span Text="&#10;" />
+                            <Span Text="Never share your MPIN with anyone" TextColor="White" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <StackLayout
+                    Grid.Row="3"
+                    Margin="0,0,0,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
+                    <Path
+                        Aspect="Uniform"
+                        Data="M16,0C24.837036,0 32,7.1629944 32,16 32,24.836975 24.837036,32 16,32 7.1630249,32 0,24.836975 0,16 0,7.1629944 7.1630249,0 16,0z"
+                        Fill="{Binding IsFirstPinTaken, Converter={StaticResource boolToFillConverter}}"
+                        HeightRequest="15"
+                        Stroke="{Binding IsFirstPinTaken, Converter={StaticResource boolToStrokeConverter}}"
+                        StrokeThickness=".5"
+                        WidthRequest="15" />
+                    <Path
+                        Aspect="Uniform"
+                        Data="M16,0C24.837036,0 32,7.1629944 32,16 32,24.836975 24.837036,32 16,32 7.1630249,32 0,24.836975 0,16 0,7.1629944 7.1630249,0 16,0z"
+                        Fill="{Binding IsSecondPinTaken, Converter={StaticResource boolToFillConverter}}"
+                        HeightRequest="15"
+                        Stroke="{Binding IsSecondPinTaken, Converter={StaticResource boolToStrokeConverter}}"
+                        StrokeThickness=".5"
+                        WidthRequest="15" />
+                    <Path
+                        Aspect="Uniform"
+                        Data="M16,0C24.837036,0 32,7.1629944 32,16 32,24.836975 24.837036,32 16,32 7.1630249,32 0,24.836975 0,16 0,7.1629944 7.1630249,0 16,0z"
+                        Fill="{Binding IsThirdPinTaken, Converter={StaticResource boolToFillConverter}}"
+                        HeightRequest="15"
+                        Stroke="{Binding IsThirdPinTaken, Converter={StaticResource boolToStrokeConverter}}"
+                        StrokeThickness=".5"
+                        WidthRequest="15" />
+                    <Path
+                        Aspect="Uniform"
+                        Data="M16,0C24.837036,0 32,7.1629944 32,16 32,24.836975 24.837036,32 16,32 7.1630249,32 0,24.836975 0,16 0,7.1629944 7.1630249,0 16,0z"
+                        Fill="{Binding IsFourthPinTaken, Converter={StaticResource boolToFillConverter}}"
+                        HeightRequest="15"
+                        Stroke="{Binding IsFourthPinTaken, Converter={StaticResource boolToStrokeConverter}}"
+                        StrokeThickness=".5"
+                        WidthRequest="15" />
+                </StackLayout>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                ColumnDefinitions="50,50,50"
+                HorizontalOptions="Center"
+                RowDefinitions="50,50,50,50"
+                VerticalOptions="FillAndExpand">
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    BackgroundColor="#0153CA"
+                    Command="{Binding InputCommand}"
+                    CommandParameter="1"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="1"
+                    TextColor="White" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BackgroundColor="#0153CA"
+                    Command="{Binding InputCommand}"
+                    CommandParameter="2"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="2"
+                    TextColor="White" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    BackgroundColor="#0153CA"
+                    Command="{Binding InputCommand}"
+                    CommandParameter="3"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="3"
+                    TextColor="White" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BackgroundColor="#0153CA"
+                    Command="{Binding InputCommand}"
+                    CommandParameter="4"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="4"
+                    TextColor="White" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BackgroundColor="#0153CA"
+                    Command="{Binding InputCommand}"
+                    CommandParameter="5"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="5"
+                    TextColor="White" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    BackgroundColor="#0153CA"
+                    Command="{Binding InputCommand}"
+                    CommandParameter="6"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="6"
+                    TextColor="White" />
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    BackgroundColor="#0153CA"
+                    Command="{Binding InputCommand}"
+                    CommandParameter="7"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="7"
+                    TextColor="White" />
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    BackgroundColor="#0153CA"
+                    Command="{Binding InputCommand}"
+                    CommandParameter="8"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="8"
+                    TextColor="White" />
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    BackgroundColor="#0153CA"
+                    Command="{Binding InputCommand}"
+                    CommandParameter="9"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="9"
+                    TextColor="White" />
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    BackgroundColor="#0153CA"
+                    Command="{Binding InputCommand}"
+                    CommandParameter="0"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="0"
+                    TextColor="White" />
+
+                <ImageButton
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Padding="10"
+                    Aspect="AspectFit"
+                    BackgroundColor="Transparent"
+                    Command="{Binding RemovePinCommand}"
+                    HeightRequest="25"
+                    IsVisible="{Binding IsBackSpaceVisible}"
+                    WidthRequest="25">
+                    <ImageButton.Source>
+                        <FontImageSource FontFamily="MaterialFontFamily" Glyph="{x:Static materialFont:MaterialFonts.Backspace}" />
+                    </ImageButton.Source>
+                </ImageButton>
+
+
+            </Grid>
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>
